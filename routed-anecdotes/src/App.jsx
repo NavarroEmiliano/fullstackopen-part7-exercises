@@ -2,14 +2,14 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import { Routes, Route, Link, useMatch } from 'react-router-dom'
+import { Routes, Route, Link, useMatch, useNavigate } from 'react-router-dom'
 const Menu = () => {
   const padding = {
     paddingRight: 5
   }
   return (
     <div>
-      <Link to='/anecdotes' style={padding}>
+      <Link to='/' style={padding}>
         Anecdotes
       </Link>
       <Link to='/create' style={padding}>
@@ -84,6 +84,8 @@ const CreateNew = props => {
   const [author, setAuthor] = useState('')
   const [info, setInfo] = useState('')
 
+  const navigate = useNavigate()
+
   const handleSubmit = e => {
     e.preventDefault()
     props.addNew({
@@ -92,6 +94,8 @@ const CreateNew = props => {
       info,
       votes: 0
     })
+
+    navigate('/')
   }
 
   return (
@@ -151,6 +155,10 @@ const App = () => {
   const addNew = anecdote => {
     anecdote.id = Math.round(Math.random() * 10000)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification(`A new anecdote ${anecdote.content} created!`)
+    setTimeout(() => {
+      setNotification('')
+    }, 10000);
   }
 
   const anecdoteById = id => anecdotes.find(a => a.id === id)
@@ -175,10 +183,11 @@ const App = () => {
     <div>
       <h1>Software anecdotes</h1>
       <Menu />
+      {notification ? <div>{notification}</div> : ''}
       <Routes>
         <Route path='/anecdotes/:id' element={<Anecdote anecdote={anecdote}/>}></Route>
         <Route
-          path='anecdotes'
+          path='/'
           element={<AnecdoteList anecdotes={anecdotes} />}
         />
         <Route path='about' element={<About />} />
