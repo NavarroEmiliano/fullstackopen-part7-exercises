@@ -19,15 +19,13 @@ const CreateNew = props => {
     })
 
     navigate('/')
-
   }
 
-  const handleReset = (e) => {
+  const handleReset = e => {
     e.preventDefault()
-    e.target.value = ''
-    content.onChange(e)
-    author.onChange(e)
-    info.onChange(e)
+    content.resetInput()
+    author.resetInput()
+    info.resetInput()
   }
 
   return (
@@ -36,19 +34,15 @@ const CreateNew = props => {
       <form onSubmit={handleSubmit}>
         <div>
           Content
-          <input
-           {...content}
-          />
+          <input {...content.props} />
         </div>
         <div>
           Author
-          <input
-            {...author}
-          />
+          <input {...author.props} />
         </div>
         <div>
           Url for more info
-          <input {...info}/>
+          <input {...info.props} />
         </div>
         <button>Create</button>
         <button onClick={handleReset}>Reset</button>
