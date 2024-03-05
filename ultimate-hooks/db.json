@@ -1,0 +1,55 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "custom-hooks are awesome!"
+    },
+    {
+      "id": 2,
+      "content": "best feature ever <3"
+    },
+    {
+      "content": "Nota papi",
+      "id": 3
+    },
+    {
+      "content": "Otra nota",
+      "id": 4
+    },
+    {
+      "content": "asdadsasdas",
+      "id": 5
+    },
+    {
+      "content": "sisisi",
+      "id": 6
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "mluukkai",
+      "number": "040-5483923"
+    },
+    {
+      "id": 2,
+      "name": "hellas",
+      "number": "012-123123"
+    },
+    {
+      "name": "Emiliano",
+      "number": "123456789",
+      "id": 3
+    },
+    {
+      "name": "Otro nombre",
+      "number": "234234234",
+      "id": 4
+    },
+    {
+      "name": "dsfdsfs",
+      "number": "1312313",
+      "id": 5
+    }
+  ]
+}
